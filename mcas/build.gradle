@@ -18,6 +18,11 @@ android {
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -116,6 +121,7 @@ dependencies {
     kapt rootProject.ext.dependencies["dagger2-compiler"]
     api rootProject.ext.dependencies["butterknife"]
     kapt rootProject.ext.dependencies["butterknife-compiler"]
+
     //test
     api rootProject.ext.dependencies["timber"]
 }
