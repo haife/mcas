@@ -15,6 +15,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.haife.mcas.di.module.GlobalConfigModule;
 import com.haife.mcas.http.imageloader.glide.GlideAppliesOptions;
 
+import com.haife.mcas.http.imageloader.glide.GlideArms;
+import com.haife.mcas.http.imageloader.glide.GlideRequest;
+import com.haife.mcas.http.imageloader.glide.GlideRequests;
 import com.haife.mcas.utils.Preconditions;
 
 

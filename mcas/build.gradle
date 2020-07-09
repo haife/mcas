@@ -92,8 +92,8 @@ dependencies {
     api rootProject.ext.dependencies["okhttp3"]
     compileOnly rootProject.ext.dependencies["glide"]
     implementation rootProject.ext.dependencies["glide-annotations"]
-    annotationProcessor rootProject.ext.dependencies["glide-annotations"]
-    annotationProcessor(rootProject.ext.dependencies["glide-compiler"]) {
+    kapt rootProject.ext.dependencies["glide-annotations"]
+    kapt(rootProject.ext.dependencies["glide-compiler"]) {
         exclude module: 'jsr305'
     }
 
