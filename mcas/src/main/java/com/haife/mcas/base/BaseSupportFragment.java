@@ -73,6 +73,11 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     }
 
     @Override
+    public void post(Runnable runnable) {
+        mDelegate.post(runnable);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         mDelegate.onResume();
@@ -195,8 +200,6 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
      */
     @Override
     public void setFragmentAnimator(FragmentAnimator fragmentAnimator) {
-
-
         mDelegate.setFragmentAnimator(fragmentAnimator);
     }
 

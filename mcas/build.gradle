@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -92,8 +94,6 @@ dependencies {
 
     //tools
     compileOnly rootProject.ext.dependencies["javax.annotation"]
-    api rootProject.ext.dependencies["dagger2"]
-    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
     compileOnly rootProject.ext.dependencies["androideventbus"]
     compileOnly rootProject.ext.dependencies["eventbus"]
     api rootProject.ext.dependencies["gson"]
@@ -108,7 +108,14 @@ dependencies {
     api rootProject.ext.dependencies["utilcode"]
     api rootProject.ext.dependencies["base-recyclerview-adapter"]
     api rootProject.ext.dependencies["androideventbus"]
-    api rootProject.ext.dependencies["autolayout"]
+    api rootProject.ext.dependencies["autosize"]
+    /*ARouter*/
+    api rootProject.ext.dependencies["arouter"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+    api rootProject.ext.dependencies["dagger2"]
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
+    api rootProject.ext.dependencies["butterknife"]
+    kapt rootProject.ext.dependencies["butterknife-compiler"]
     //test
     api rootProject.ext.dependencies["timber"]
 }

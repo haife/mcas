@@ -3,7 +3,6 @@ package com.haife.mcas.base;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -12,10 +11,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.blankj.utilcode.util.ScreenUtils;
 import com.haife.mcas.mvp.IPresenter;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportActivity;
 import me.yokeyword.fragmentation.ISupportFragment;
@@ -33,6 +35,12 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
 
     final SupportActivityDelegate mDelegate = new SupportActivityDelegate(this);
     public BaseSupportActivity mContext;
+    /**
+     * 如果需要内容紧贴着StatusBar
+     * 应该在对应的xml布局文件中，设置根布局fitsSystemWindows=true。
+     */
+    private View contentViewGroup;
+
     @Override
     public SupportActivityDelegate getSupportDelegate() {
         return mDelegate;
@@ -72,8 +80,10 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
         super.onDestroy();
     }
 
-
-
+    @Override
+    public void post(Runnable runnable) {
+        mDelegate.post(runnable);
+    }
 
     /**
      * Note： return mDelegate.dispatchTouchEvent(ev) || super.dispatchTouchEvent(ev);
@@ -241,13 +251,6 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
         }
         return false;
     }
-
-
-    /**
-     * 如果需要内容紧贴着StatusBar
-     * 应该在对应的xml布局文件中，设置根布局fitsSystemWindows=true。
-     */
-    private View contentViewGroup;
 
     protected void setFitSystemWindow(boolean fitSystemWindow) {
         if (contentViewGroup == null) {
