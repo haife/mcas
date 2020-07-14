@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource" >
+
+    <!--common-->
+    <attr name="app_primary_color" format="color" />
+    <attr name="app_content_bg_color" format="color"/>
+
+
+</resources>

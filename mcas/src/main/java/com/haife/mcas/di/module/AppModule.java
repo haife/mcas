@@ -17,7 +17,7 @@ import com.haife.mcas.integration.RepositoryManager;
 import com.haife.mcas.integration.cache.Cache;
 import com.haife.mcas.integration.cache.CacheType;
 import com.haife.mcas.integration.lifecycle.ActivityLifecycleForRxLifecycle;
-
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,12 @@ import dagger.Provides;
 
 /**
  * Copyright © KaiWu Technology Company
+ *
  * @author Haife
  * @job Android Development
  * @company KW | 开物科技
  * @time 2019/7/1
- * @desc   提供一些框架必须的实例的 {@link Module}
+ * @desc 提供一些框架必须的实例的 {@link Module}
  */
 @Module
 public abstract class AppModule {
@@ -63,14 +64,31 @@ public abstract class AppModule {
         return AppManager.getAppManager().init(application);
     }
 
-    @Binds
-    abstract IRepositoryManager bindRepositoryManager(RepositoryManager repositoryManager);
+    @Singleton
+    @Provides
+    static QMUITipDialog provideQmuiLoadingDialog(Application application) {
+        QMUITipDialog mTipDialog = new QMUITipDialog.Builder(application)
+                .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
+                .setTipWord("加载中")
+                .create();
+        mTipDialog.show();
+        return mTipDialog;
+    }
 
     @Singleton
     @Provides
     static Cache<String, Object> provideExtras(Cache.Factory cacheFactory) {
         return cacheFactory.build(CacheType.EXTRAS);
     }
+
+    @Singleton
+    @Provides
+    static List<FragmentManager.FragmentLifecycleCallbacks> provideFragmentLifecycles() {
+        return new ArrayList<>();
+    }
+
+    @Binds
+    abstract IRepositoryManager bindRepositoryManager(RepositoryManager repositoryManager);
 
     @Binds
     @Named("ActivityLifecycle")
@@ -82,12 +100,6 @@ public abstract class AppModule {
 
     @Binds
     abstract FragmentManager.FragmentLifecycleCallbacks bindFragmentLifecycle(FragmentLifecycle fragmentLifecycle);
-
-    @Singleton
-    @Provides
-    static List<FragmentManager.FragmentLifecycleCallbacks> provideFragmentLifecycles() {
-        return new ArrayList<>();
-    }
 
     public interface GsonConfiguration {
         void configGson(@NonNull Context context, @NonNull GsonBuilder builder);

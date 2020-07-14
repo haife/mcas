@@ -121,7 +121,7 @@ dependencies {
     kapt rootProject.ext.dependencies["dagger2-compiler"]
     api rootProject.ext.dependencies["butterknife"]
     kapt rootProject.ext.dependencies["butterknife-compiler"]
-
+    implementation rootProject.ext.dependencies["banner"]
     //test
     api rootProject.ext.dependencies["timber"]
 }

@@ -1,10 +1,12 @@
 package com.haife.mcas.mvp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
 
+import com.haife.mcas.base.App;
 import com.haife.mcas.utils.McaUtils;
 
 import static com.haife.mcas.utils.Preconditions.checkNotNull;
@@ -23,6 +25,7 @@ import static com.haife.mcas.utils.Preconditions.checkNotNull;
  */
 public interface IView {
 
+
     /**
      * 显示加载
      */
@@ -34,6 +37,14 @@ public interface IView {
      * 隐藏加载
      */
     default void hideLoading() {
+
+    }
+
+    /**
+     * 获取服务器数据
+     * @param data 服务器返回的数据
+     */
+    default void onGetServerEntity(@NonNull Object data){
 
     }
 
@@ -54,10 +65,14 @@ public interface IView {
         McaUtils.startActivity(intent);
     }
 
+
+
     /**
      * 杀死自己
      */
     default void killMyself() {
 
     }
+
+
 }
