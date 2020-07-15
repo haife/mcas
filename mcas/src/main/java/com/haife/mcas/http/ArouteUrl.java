@@ -12,9 +12,7 @@ public class ArouteUrl {
     /**
      * 智能款款
      */
-    public static final String LOGIN_URL = "/repayment/level1";
-
-
+    public static final String REPAYMENT_LEVEL_1_BANK_LIST = "/repayment/level1";
 
 
 
