@@ -67,12 +67,10 @@ public abstract class AppModule {
     @Singleton
     @Provides
     static QMUITipDialog provideQmuiLoadingDialog(Application application) {
-        QMUITipDialog mTipDialog = new QMUITipDialog.Builder(application)
+        return new QMUITipDialog.Builder(application)
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
                 .setTipWord("加载中")
                 .create();
-        mTipDialog.show();
-        return mTipDialog;
     }
 
     @Singleton

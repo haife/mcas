@@ -1,10 +1,6 @@
 package com.haife.mcas.mvp;
 
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -16,7 +12,7 @@ import com.haife.mcas.integration.IRepositoryManager;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -39,21 +35,22 @@ public class BaseModel implements IModel, LifecycleObserver {
 
     /**
      * 将Object对象里面的属性和值转化成Map对象
+     *
      * @param obj
      * @param key
      * @return
      */
-    public static Object encryptObjectToMap(@Nullable Object obj, String key) {
+    public static HashMap<String,Object> encryptObjectToMap(@Nullable Object obj, String key) {
         if (obj != null) {
             try {
-                TreeMap<String, Object> map = new TreeMap<>();
+                HashMap<String, Object> map = new HashMap<>();
                 Field[] declaredFields = obj.getClass().getDeclaredFields();
                 for (Field field : declaredFields) {
                     field.setAccessible(true);
                     map.put(field.getName(), field.get(obj));
                 }
-                map.put("sign", getMacData(map, key));
-                return mapToObject(map, (Class<?>) obj);
+                map.put("64", getMacData(map, key));
+               return map;
             } catch (Exception ignored) {
 
             }
@@ -92,7 +89,7 @@ public class BaseModel implements IModel, LifecycleObserver {
      * @param map 请求的map
      * @return json 字符串
      */
-    private static String getMacData(TreeMap<String, Object> map, String key) throws Exception {
+    public static String getMacData(HashMap<String, Object> map, String key) throws Exception {
         Map<String, Object> resultMap = sortMapByKey(map);
         String sign = "";
         for (Map.Entry<String, Object> entry : resultMap.entrySet()) {
@@ -114,24 +111,20 @@ public class BaseModel implements IModel, LifecycleObserver {
      * @param map
      * @return
      */
-    private static Map<String, Object> sortMapByKey(Map<String, Object> map) {
+    public static Map<String, Object> sortMapByKey(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {
             return null;
         }
 
-        Map<String, Object> sortMap = new TreeMap<String, Object>(new Comparator<String>() {
-            @Override
-            public int compare(String lhs, String rhs) {
-                // 这里改为小写进行比较
-                Integer l = Integer.parseInt(lhs);
-                Integer r = Integer.parseInt(rhs);
-                return l.compareTo(r);
-            }
+        Map<String, Object> sortMap = new TreeMap<String, Object>((lhs, rhs) -> {
+            // 这里改为小写进行比较
+            Integer l = Integer.parseInt(lhs);
+            Integer r = Integer.parseInt(rhs);
+            return l.compareTo(r);
         });
         sortMap.putAll(map);
         return sortMap;
     }
-
 
 
     /**
