@@ -12,7 +12,6 @@ import com.haife.mcas.http.imageloader.ImageLoader;
 import com.haife.mcas.integration.AppManager;
 import com.haife.mcas.integration.IRepositoryManager;
 import com.haife.mcas.integration.cache.Cache;
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 
 import java.io.File;
@@ -60,13 +59,6 @@ public interface AppComponent {
      */
     RxErrorHandler rxErrorHandler();
 
-
-    /**
-     * qmui加载等待
-     *
-     * @return {@link QMUITipDialog}
-     */
-    QMUITipDialog qmuiLoadDialog();
 
     /**
      * 图片加载管理器, 用于加载图片的管理类, 使用策略者模式, 可在运行时动态替换任何图片加载框架

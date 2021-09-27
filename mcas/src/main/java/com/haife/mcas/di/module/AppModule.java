@@ -17,7 +17,6 @@ import com.haife.mcas.integration.RepositoryManager;
 import com.haife.mcas.integration.cache.Cache;
 import com.haife.mcas.integration.cache.CacheType;
 import com.haife.mcas.integration.lifecycle.ActivityLifecycleForRxLifecycle;
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,14 +63,7 @@ public abstract class AppModule {
         return AppManager.getAppManager().init(application);
     }
 
-    @Singleton
-    @Provides
-    static QMUITipDialog provideQmuiLoadingDialog(Application application) {
-        return new QMUITipDialog.Builder(application)
-                .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
-                .setTipWord("加载中")
-                .create();
-    }
+
 
     @Singleton
     @Provides
