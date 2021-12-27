@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.blankj.utilcode.util.ScreenUtils;
 import com.haife.mcas.mvp.IPresenter;
 
 import java.lang.reflect.Field;
@@ -61,7 +60,7 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
             fixOrientation();
         }
         //固定屏幕方向
-        ScreenUtils.setPortrait(this);
+
         mContext = this;
         mDelegate.onCreate(savedInstanceState);
 

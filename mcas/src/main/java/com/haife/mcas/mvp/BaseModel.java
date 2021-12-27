@@ -7,7 +7,6 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import com.blankj.utilcode.util.StringUtils;
 import com.haife.mcas.integration.IRepositoryManager;
 
 import java.lang.reflect.Field;
@@ -40,7 +39,7 @@ public class BaseModel implements IModel, LifecycleObserver {
      * @param key
      * @return
      */
-    public static HashMap<String,Object> encryptObjectToMap(@Nullable Object obj, String key) {
+    public static HashMap<String, Object> encryptObjectToMap(@Nullable Object obj, String key) {
         if (obj != null) {
             try {
                 HashMap<String, Object> map = new HashMap<>();
@@ -50,7 +49,7 @@ public class BaseModel implements IModel, LifecycleObserver {
                     map.put(field.getName(), field.get(obj));
                 }
                 map.put("64", getMacData(map, key));
-               return map;
+                return map;
             } catch (Exception ignored) {
 
             }
@@ -93,13 +92,13 @@ public class BaseModel implements IModel, LifecycleObserver {
         Map<String, Object> resultMap = sortMapByKey(map);
         String sign = "";
         for (Map.Entry<String, Object> entry : resultMap.entrySet()) {
-            if (StringUtils.isEmpty(sign)) {
+            if (sign != null && !sign.isEmpty()) {
                 sign = String.valueOf(entry.getValue());
             } else {
                 sign += entry.getValue();
             }
         }
-        if (!StringUtils.isEmpty(sign)) {
+        if (sign != null && !sign.isEmpty()) {
             sign += key;
         }
         return sign;
