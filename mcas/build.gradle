@@ -110,7 +110,7 @@ dependencies {
     api rootProject.ext.dependencies["smartrefreshlayout"]
     api rootProject.ext.dependencies["sneaker"]
     api rootProject.ext.dependencies["qmui"]
-    api rootProject.ext.dependencies["utilcode"]
+    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     api rootProject.ext.dependencies["base-recyclerview-adapter"]
     api rootProject.ext.dependencies["androideventbus"]
     api rootProject.ext.dependencies["autosize"]
