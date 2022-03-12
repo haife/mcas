@@ -19,7 +19,7 @@ ext {
             retrofitSdkVersion      : "2.4.0",
             dagger2SdkVersion       : "2.19",
             glideSdkVersion         : "4.11.0",
-            fragmentationVersion    : "1.0.0",
+            fragmentationVersion    : "1.3.8",
             butterknifeSdkVersion   : "10.0.0",
             baseRecycleViewVersion  : "2.9.30",
             rxlifecycleSdkVersion   : "1.0",

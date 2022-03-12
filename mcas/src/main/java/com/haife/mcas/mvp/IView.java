@@ -74,31 +74,4 @@ public interface IView {
 
     }
 
-    /**
-     * 加载中
-     */
-    default void showGLoading() {
-    }
-    /**
-     * 加载成功
-     */
-    default void showLoadSuccess() {
-    }
-    /**
-     * 加载成功(带加载数据)
-     */
-    default void showLoadSuccess(@NonNull Object data) {
-    }
-    /**
-     * 加载失败
-     */
-    default void showLoadFailed() {
-    }
-    /**
-     * 加载数据为空
-     */
-    default void showLoadEmpty() {
-    }
-
-
 }
