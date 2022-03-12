@@ -78,9 +78,9 @@ ext {
             "rxcache-jolyglot-gson"    : "com.github.VictorAlbertos.Jolyglot:gson:0.0.4",
             "rxpermissions"            : "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar",
             //fragment
-            "fragmentation"            : "me.yokeyword:fragmentationx:${version["fragmentationVersion"]}",
-            "fragmentation-code"       : "me.yokeyword:fragmentationx-core:${version["fragmentationVersion"]}",
-            "fragmentation-swipeback"  : "me.yokeyword:fragmentationx-swipeback:${version["fragmentationVersion"]}",
+            "fragmentation"            : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
+            "fragmentation-code"       : "me.yokeyword:fragmentation-core:${version["fragmentationVersion"]}",
+            "fragmentation-swipeback"  : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
             //rx2
             "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.1.0",
             "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.3",
