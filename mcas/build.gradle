@@ -102,7 +102,10 @@ dependencies {
     compileOnly rootProject.ext.dependencies["androideventbus"]
     compileOnly rootProject.ext.dependencies["eventbus"]
     api rootProject.ext.dependencies["gson"]
-
+    //view
+    api rootProject.ext.dependencies["fragmentation"]
+    api rootProject.ext.dependencies["fragmentation-code"]
+    api rootProject.ext.dependencies["fragmentation-swipeback"]
     api rootProject.ext.dependencies["androideventbus"]
     /*ARouter*/
     api rootProject.ext.dependencies["arouter"]

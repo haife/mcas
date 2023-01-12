@@ -25,7 +25,6 @@ import dagger.Provides;
 
 import io.rx_cache2.internal.RxCache;
 import io.victoralbertos.jolyglot.GsonSpeaker;
-import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.listener.ResponseErrorListener;
 import okhttp3.Dispatcher;
