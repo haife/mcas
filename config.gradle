@@ -21,7 +21,6 @@ ext {
             glideSdkVersion         : "4.11.0",
             fragmentationVersion    : "1.3.8",
             butterknifeSdkVersion   : "10.0.0",
-            baseRecycleViewVersion  : "2.9.30",
             rxlifecycleSdkVersion   : "1.0",
             rxlifecycle2SdkVersion  : "2.2.2",
             espressoSdkVersion      : "3.0.1",
@@ -55,7 +54,6 @@ ext {
             "qmuiteam-arch"            : "com.qmuiteam:arch:2.0.0-alpha10",
             "bottomnavigationviewex"   : "com.github.ittianyu:BottomNavigationViewEx:2.0.2",
             "banner"                   : "com.youth.banner:banner:1.4.9",
-            "magicindicator"           : "com.github.hackware1993:MagicIndicator:1.5.0",
             "sneaker"                  : "com.irozon.sneaker:sneaker:2.0.0",
             "image-picker"             : "com.cysion:ImagePicker:1.0.7.x",
             "ninegridview"             : "com.lzy.widget:ninegridview:0.2.0",
@@ -102,7 +100,7 @@ ext {
             "gson"                     : "com.google.code.gson:gson:2.8.5",
             "multidex"                 : "com.android.support:multidex:2.0.1",
             "javax.annotation"         : "javax.annotation:jsr250-api:1.0",
-            "autosize"                 : "me.jessyan:autosize:1.1.1",
+            "autosize"                 : "com.github.JessYanCoding:AndroidAutoSize:v1.2.1",
             //极光推送
             "jpush"                    : "cn.jiguang.sdk:jpush:3.3.4",
             "jcore"                    : "cn.jiguang.sdk:jcore:2.1.2",
@@ -115,9 +113,7 @@ ext {
             "hx-sdk"                   : "com.hyphenate:hyphenate-sdk:3.6.1",
             "zbar"                     : 'cn.bingoogolapple:bga-qrcode-zbar:1.3.6',
 
-            "base-recyclerview-adapter": "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version["baseRecycleViewVersion"]}",
             "utilcode"                 : "com.blankj:utilcode:1.30.6",
-            "smartrefreshlayout"       : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-4",
             //ARoute
             "arouter"                  : "com.alibaba:arouter-api:${version["arouterSDk"]}",
             "arouter-compiler"         : "com.alibaba:arouter-compiler:${version["arouterCompilerSdk"]}",

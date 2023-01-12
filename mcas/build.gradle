@@ -106,14 +106,8 @@ dependencies {
     api rootProject.ext.dependencies["fragmentation"]
     api rootProject.ext.dependencies["fragmentation-code"]
     api rootProject.ext.dependencies["fragmentation-swipeback"]
-    api rootProject.ext.dependencies["magicindicator"]
-    api rootProject.ext.dependencies["smartrefreshlayout"]
-    api rootProject.ext.dependencies["sneaker"]
     api rootProject.ext.dependencies["qmui"]
-    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
-    api rootProject.ext.dependencies["base-recyclerview-adapter"]
     api rootProject.ext.dependencies["androideventbus"]
-    api rootProject.ext.dependencies["autosize"]
     /*ARouter*/
     api rootProject.ext.dependencies["arouter"]
     kapt rootProject.ext.dependencies["arouter-compiler"]
@@ -121,7 +115,6 @@ dependencies {
     kapt rootProject.ext.dependencies["dagger2-compiler"]
     api rootProject.ext.dependencies["butterknife"]
     kapt rootProject.ext.dependencies["butterknife-compiler"]
-    implementation rootProject.ext.dependencies["banner"]
     //test
     api rootProject.ext.dependencies["timber"]
 }
