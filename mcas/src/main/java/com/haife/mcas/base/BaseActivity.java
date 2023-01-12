@@ -32,24 +32,23 @@ import io.reactivex.subjects.Subject;
 import static com.haife.mcas.utils.ThirdViewUtil.convertAutoView;
 
 
-/**
- * Copyright © KaiWu Technology Company
- *
- * @author Haife
- * @job Android Development
- * @company KW | 开物科技
- * @time 2019/7/1
- * @desc 因为 Java 只能单继承, 所以如果要用到需要继承特定 {@link Activity} 的三方库, 那你就需要自己自定义 {@link Activity}
- * 继承于这个特定的 {@link Activity}, 然后再按照 {@link BaseActivity} 的格式, 将代码复制过去, 记住一定要实现{@link IActivity}
- */
+ /**
+  * @company Copyright © Beijing Technology Company
+  * @since 2023/1/12
+  * @author Android Development
+  * @des:
+  */
 public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivity implements IActivity, ActivityLifecycleable {
     protected final String TAG = this.getClass().getSimpleName();
     private final BehaviorSubject<ActivityEvent> mLifecycleSubject = BehaviorSubject.create();
     private Cache<String, Object> mCache;
     private Unbinder mUnbinder;
+     /**
+      * 如果当前页面逻辑简单, Presenter 可以为 null
+      */
     @Inject
     @Nullable
-    protected P mPresenter;//如果当前页面逻辑简单, Presenter 可以为 null
+    protected P mPresenter;
 
     @NonNull
     @Override
@@ -80,7 +79,6 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
             //如果initView返回0,框架则不会调用setContentView(),当然也不会 Bind ButterKnife
             if (layoutResID != 0) {
                 setContentView(layoutResID);
-                //绑定到butterknife
                 mUnbinder = ButterKnife.bind(this);
             }
         } catch (Exception e) {
