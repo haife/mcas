@@ -19,7 +19,6 @@ ext {
             retrofitSdkVersion      : "2.4.0",
             dagger2SdkVersion       : "2.19",
             glideSdkVersion         : "4.11.0",
-            fragmentationVersion    : "1.3.8",
             butterknifeSdkVersion   : "10.0.0",
             rxlifecycleSdkVersion   : "1.0",
             rxlifecycle2SdkVersion  : "2.2.2",
@@ -75,10 +74,7 @@ ext {
             "rxcache"                  : "com.github.VictorAlbertos.RxCache:runtime:1.7.0-1.x",
             "rxcache-jolyglot-gson"    : "com.github.VictorAlbertos.Jolyglot:gson:0.0.4",
             "rxpermissions"            : "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar",
-            //fragment
-            "fragmentation"            : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
-            "fragmentation-code"       : "me.yokeyword:fragmentation-core:${version["fragmentationVersion"]}",
-            "fragmentation-swipeback"  : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
+
             //rx2
             "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.1.0",
             "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.3",
@@ -100,20 +96,7 @@ ext {
             "gson"                     : "com.google.code.gson:gson:2.8.5",
             "multidex"                 : "com.android.support:multidex:2.0.1",
             "javax.annotation"         : "javax.annotation:jsr250-api:1.0",
-            "autosize"                 : "com.github.JessYanCoding:AndroidAutoSize:v1.2.1",
-            //极光推送
-            "jpush"                    : "cn.jiguang.sdk:jpush:3.3.4",
-            "jcore"                    : "cn.jiguang.sdk:jcore:2.1.2",
-            "greendao"                 : "org.greenrobot:greendao:3.2.2",
-            //环信
-            "j256"                     : "com.j256.ormlite:ormlite-android:5.0",
-            "google-gms"               : "com.google.android.gms:play-services-base:11.4.0",
-            "google-firebase"          : "com.google.firebase:firebase-messaging:11.4.0",
-            "parse"                    : "com.parse:parse-android:1.13.1",
-            "hx-sdk"                   : "com.hyphenate:hyphenate-sdk:3.6.1",
-            "zbar"                     : 'cn.bingoogolapple:bga-qrcode-zbar:1.3.6',
 
-            "utilcode"                 : "com.blankj:utilcode:1.30.6",
             //ARoute
             "arouter"                  : "com.alibaba:arouter-api:${version["arouterSDk"]}",
             "arouter-compiler"         : "com.alibaba:arouter-compiler:${version["arouterCompilerSdk"]}",
