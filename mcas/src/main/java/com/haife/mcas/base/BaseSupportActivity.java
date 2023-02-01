@@ -27,7 +27,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
  * Copyright © LingLingYi Technology Company
- *
+ * fragment 1.3.8
  * @author Haife
  * @job Android Development
  */
