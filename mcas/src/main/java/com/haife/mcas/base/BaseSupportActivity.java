@@ -27,12 +27,11 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
  * Copyright © LingLingYi Technology Company
- * fragment 1.3.8
+ * fragment androidX 1.0.6
  * @author Haife
  * @job Android Development
  */
 public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActivity<P> implements ISupportActivity {
-
     final SupportActivityDelegate mDelegate = new SupportActivityDelegate(this);
     public BaseSupportActivity mContext;
     /**

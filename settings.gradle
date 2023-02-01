@@ -1,4 +1,3 @@
 rootProject.name='Mcas'
 include ':app'
 include ':mcas'
-include ':mac'

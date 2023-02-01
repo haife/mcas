@@ -1,6 +1,7 @@
 package com.haife.mcas.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,6 +14,7 @@ import com.haife.mcas.mvp.IPresenter;
 
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportFragment;
+import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.SupportHelper;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -42,10 +44,10 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mDelegate.onAttach(activity);
-        _mActivity = mDelegate.getActivity();
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mDelegate.onAttach();
+        _mActivity = (SupportActivity) mDelegate.getActivity();
     }
 
     @Override
@@ -114,18 +116,6 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     }
 
 
-    /**
-     * If you want to call the start()/pop()/showHideFragment() on the onCreateXX/onActivityCreated,
-     * call this method to deliver the transaction to the queue.
-     * <p>
-     * 在onCreate/onCreateView/onActivityCreated中使用 start()/pop()/showHideFragment(),请使用该方法把你的任务入队
-     *
-     * @param runnable start() , pop() or showHideFragment()
-     */
-    @Override
-    public void enqueueAction(Runnable runnable) {
-        mDelegate.enqueueAction(runnable);
-    }
 
     /**
      * Called when the enter-animation end.

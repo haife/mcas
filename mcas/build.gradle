@@ -105,6 +105,7 @@ dependencies {
     //view
     api rootProject.ext.dependencies["qmui"]
     api rootProject.ext.dependencies["fragmentation"]
+    api rootProject.ext.dependencies["fragmentation-code"]
     api rootProject.ext.dependencies["fragmentation-swipeback"]
     api rootProject.ext.dependencies["androideventbus"]
     /*ARouter*/
