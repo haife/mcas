@@ -1,6 +1,6 @@
 package com.haife.mcas.base;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -8,11 +8,11 @@ import android.view.animation.Animation;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
+
 import com.haife.mcas.mvp.IPresenter;
 
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportFragment;
-import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.SupportHelper;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -42,10 +42,10 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
         mDelegate.onAttach();
-        _mActivity =  mDelegate.getActivity();
+        _mActivity = mDelegate.getActivity();
     }
 
     @Override
@@ -239,8 +239,6 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
 
 
     /****************************************以下为可选方法(Optional methods)******************************************************/
-    // 自定制Support时，可移除不必要的方法
-
     /**
      * 隐藏软键盘
      */
@@ -269,32 +267,6 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
         mDelegate.loadRootFragment(containerId, toFragment, addToBackStack, allowAnim);
     }
 
-    /**
-     * 加载多个同级根Fragment,类似Wechat, QQ主页的场景
-     */
-    public void loadMultipleRootFragment(int containerId, int showPosition, ISupportFragment... toFragments) {
-        mDelegate.loadMultipleRootFragment(containerId, showPosition, toFragments);
-    }
-
-    /**
-     * show一个Fragment,hide其他同栈所有Fragment
-     * 使用该方法时，要确保同级栈内无多余的Fragment,(只有通过loadMultipleRootFragment()载入的Fragment)
-     * <p>
-     * 建议使用更明确的{@link #showHideFragment(ISupportFragment, ISupportFragment)}
-     *
-     * @param showFragment 需要show的Fragment
-     */
-    public void showHideFragment(ISupportFragment showFragment) {
-        mDelegate.showHideFragment(showFragment);
-    }
-
-    /**
-     * show一个Fragment,hide一个Fragment ; 主要用于类似微信主页那种 切换tab的情况
-     */
-    public void showHideFragment(ISupportFragment showFragment, ISupportFragment hideFragment) {
-        mDelegate.showHideFragment(showFragment, hideFragment);
-    }
-
     public void start(ISupportFragment toFragment) {
         mDelegate.start(toFragment);
     }
@@ -314,10 +286,19 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     }
 
     /**
-     * Launch a fragment while poping self.
+     * Start the target Fragment and pop itself
      */
     public void startWithPop(ISupportFragment toFragment) {
         mDelegate.startWithPop(toFragment);
+    }
+
+    /**
+     * @see #popTo(Class, boolean)
+     * +
+     * @see #start(ISupportFragment)
+     */
+    public void startWithPopTo(ISupportFragment toFragment, Class<?> targetFragmentClass, boolean includeTargetFragment) {
+        mDelegate.startWithPopTo(toFragment, targetFragmentClass, includeTargetFragment);
     }
 
     public void replaceFragment(ISupportFragment toFragment, boolean addToBackStack) {
@@ -330,7 +311,7 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
 
     /**
      * Pop the last fragment transition from the manager's fragment
-     * icon_back stack.
+     * back stack.
      * <p>
      * 出栈到目标fragment
      *
@@ -342,18 +323,12 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     }
 
     /**
-     * Pop the child fragment.
-     */
-    public void popChild() {
-        mDelegate.popChild();
-    }
-
-    /**
      * 获取栈内的fragment对象
      */
     public <T extends ISupportFragment> T findChildFragment(Class<T> fragmentClass) {
         return SupportHelper.findFragment(getChildFragmentManager(), fragmentClass);
     }
+
 
 
 }
