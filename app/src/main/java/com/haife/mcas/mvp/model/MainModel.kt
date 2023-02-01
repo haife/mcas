@@ -18,7 +18,5 @@ constructor(repositoryManager: IRepositoryManager) : BaseModel(repositoryManager
     @Inject
     lateinit var mApplication: Application
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
+
 }
