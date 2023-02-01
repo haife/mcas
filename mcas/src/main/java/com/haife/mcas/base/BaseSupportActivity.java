@@ -145,12 +145,9 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
     /****************************************以下为可选方法(Optional methods)******************************************************/
 
     // 选择性拓展其他方法
+
     public void loadRootFragment(int containerId, @NonNull ISupportFragment toFragment) {
         mDelegate.loadRootFragment(containerId, toFragment);
-    }
-
-    public void loadMultipleRootFragment(int containerId, int showPosition, @NonNull ISupportFragment... toFragments) {
-        mDelegate.loadMultipleRootFragment(containerId, showPosition, toFragments);
     }
 
     public void start(ISupportFragment toFragment) {
@@ -165,6 +162,16 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
     }
 
     /**
+     *
+     * @see #popTo(Class, boolean)
+     * +
+     * @see #start(ISupportFragment)
+     */
+    public void startWithPopTo(ISupportFragment toFragment, Class<?> targetFragmentClass, boolean includeTargetFragment) {
+        mDelegate.startWithPopTo(toFragment, targetFragmentClass, includeTargetFragment);
+    }
+
+    /**
      * Pop the fragment.
      */
     public void pop() {
@@ -173,18 +180,10 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
 
     /**
      * Pop the last fragment transition from the manager's fragment
-     * icon_back stack.
+     * back stack.
      */
     public void popTo(Class<?> targetFragmentClass, boolean includeTargetFragment) {
         mDelegate.popTo(targetFragmentClass, includeTargetFragment);
-    }
-
-    public void showHideFragment(ISupportFragment showFragment) {
-        mDelegate.showHideFragment(showFragment);
-    }
-
-    public void showHideFragment(ISupportFragment showFragment, ISupportFragment preFragment) {
-        mDelegate.showHideFragment(showFragment, preFragment);
     }
 
     /**

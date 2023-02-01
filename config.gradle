@@ -19,7 +19,7 @@ ext {
             retrofitSdkVersion      : "2.4.0",
             dagger2SdkVersion       : "2.19",
             glideSdkVersion         : "4.11.0",
-            fragmentationVersion    : "1.0.1",
+            fragmentationVersion    : "1.3.8",
             butterknifeSdkVersion   : "10.0.0",
             rxlifecycleSdkVersion   : "1.0",
             rxlifecycle2SdkVersion  : "2.2.2",
@@ -76,9 +76,9 @@ ext {
             "rxcache-jolyglot-gson"    : "com.github.VictorAlbertos.Jolyglot:gson:0.0.4",
             "rxpermissions"            : "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar",
             //fragment
-            "fragmentation"            : "me.yokeyword:fragmentationx:${version["fragmentationVersion"]}",
+            "fragmentation"            : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
             "fragmentation-code"       : "me.yokeyword:fragmentationx-core:${version["fragmentationVersion"]}",
-            "fragmentation-swipeback"  : "me.yokeyword:fragmentationx-swipeback:${version["fragmentationVersion"]}",
+            "fragmentation-swipeback"  : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
 
             //rx2
             "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.1.0",
