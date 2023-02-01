@@ -34,10 +34,7 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
 
     final SupportActivityDelegate mDelegate = new SupportActivityDelegate(this);
     public BaseSupportActivity mContext;
-    /**
-     * 如果需要内容紧贴着StatusBar
-     * 应该在对应的xml布局文件中，设置根布局fitsSystemWindows=true。
-     */
+
     private View contentViewGroup;
 
     @Override

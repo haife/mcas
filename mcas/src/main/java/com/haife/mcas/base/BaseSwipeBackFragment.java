@@ -35,6 +35,7 @@ public abstract class BaseSwipeBackFragment<P extends IPresenter> extends BaseSu
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mDelegate.onViewCreated(view, savedInstanceState);
+        setParallaxOffset(0.0f);
     }
 
     @Override
