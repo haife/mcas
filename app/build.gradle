@@ -2,9 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "29.0.2"
-
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     defaultConfig {
         applicationId "com.haife.mcas"
         minSdkVersion 21
@@ -28,6 +27,12 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core-ktx:1.6.0'
     }
 }
 
