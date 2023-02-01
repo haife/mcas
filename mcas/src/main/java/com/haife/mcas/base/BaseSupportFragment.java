@@ -45,7 +45,7 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     public void onAttach(Context context) {
         super.onAttach(context);
         mDelegate.onAttach();
-        _mActivity = (SupportActivity) mDelegate.getActivity();
+        _mActivity =  mDelegate.getActivity();
     }
 
     @Override

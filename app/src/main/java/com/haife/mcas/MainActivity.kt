@@ -15,7 +15,7 @@ class MainActivity() : BaseSupportActivity<MainPresenter>() {
     override fun initView(savedInstanceState: Bundle?): Int = R.layout.activity_main
 
     override fun initData(savedInstanceState: Bundle?) {
-
+        loadRootFragment(R.id.fl_main, BlankFragment.newInstance())
     }
 
 }
