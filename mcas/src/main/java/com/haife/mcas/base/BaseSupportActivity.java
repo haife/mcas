@@ -1,13 +1,8 @@
 package com.haife.mcas.base;
 
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.TypedArray;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -15,19 +10,18 @@ import androidx.annotation.Nullable;
 
 import com.haife.mcas.mvp.IPresenter;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportActivity;
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportActivityDelegate;
+import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.fragmentation.SupportHelper;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
  * Copyright © LingLingYi Technology Company
  * fragment androidX 1.0.6
+ *
  * @author Haife
  * @job Android Development
  */
@@ -56,14 +50,8 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.O && isTranslucentOrFloating()) {
-            fixOrientation();
-        }
-        //固定屏幕方向
-
         mContext = this;
         mDelegate.onCreate(savedInstanceState);
-
         super.onCreate(savedInstanceState);
     }
 
@@ -145,6 +133,7 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
     /****************************************以下为可选方法(Optional methods)******************************************************/
 
     // 选择性拓展其他方法
+
     /**
      * 加载根Fragment, 即Activity内的第一个Fragment 或 Fragment内的第一个子Fragment
      *
@@ -290,49 +279,5 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
         return SupportHelper.findFragment(getSupportFragmentManager(), fragmentClass);
     }
 
-    private boolean isTranslucentOrFloating() {
-        boolean isTranslucentOrFloating = false;
-        try {
-            int[] styleableRes = (int[]) Class.forName("com.android.internal.R$styleable").getField("Window").get(null);
-            final TypedArray ta = obtainStyledAttributes(styleableRes);
-            Method m = ActivityInfo.class.getMethod("isTranslucentOrFloating", TypedArray.class);
-            m.setAccessible(true);
-            isTranslucentOrFloating = (boolean) m.invoke(null, ta);
-            m.setAccessible(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return isTranslucentOrFloating;
-    }
-
-    @Override
-    public void setRequestedOrientation(int requestedOrientation) {
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.O && isTranslucentOrFloating()) {
-            return;
-        }
-
-        super.setRequestedOrientation(requestedOrientation);
-    }
-
-    private boolean fixOrientation() {
-        try {
-            Field field = Activity.class.getDeclaredField("mActivityInfo");
-            field.setAccessible(true);
-            ActivityInfo o = (ActivityInfo) field.get(this);
-            o.screenOrientation = -1;
-            field.setAccessible(false);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    protected void setFitSystemWindow(boolean fitSystemWindow) {
-        if (contentViewGroup == null) {
-            contentViewGroup = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-        }
-        contentViewGroup.setFitsSystemWindows(fitSystemWindow);
-    }
 
 }

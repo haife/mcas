@@ -34,6 +34,9 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.4.0'
+
     //support
     compileOnly rootProject.ext.dependencies["design"]
     //view
@@ -104,9 +107,8 @@ dependencies {
     api rootProject.ext.dependencies["gson"]
     //view
     api rootProject.ext.dependencies["qmui"]
-    api rootProject.ext.dependencies["fragmentation"]
-    api rootProject.ext.dependencies["fragmentation-code"]
-    api rootProject.ext.dependencies["fragmentation-swipeback"]
+    implementation rootProject.ext.dependencies["fragmentation"]
+    implementation rootProject.ext.dependencies["fragmentation-swipeback"]
     api rootProject.ext.dependencies["androideventbus"]
     /*ARouter*/
     api rootProject.ext.dependencies["arouter"]

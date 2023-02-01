@@ -1,6 +1,5 @@
 package com.haife.mcas.base;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.view.animation.Animation;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-
 
 import com.haife.mcas.mvp.IPresenter;
 
@@ -114,7 +112,6 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
         super.setUserVisibleHint(isVisibleToUser);
         mDelegate.setUserVisibleHint(isVisibleToUser);
     }
-
 
 
     /**
@@ -357,7 +354,6 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     public <T extends ISupportFragment> T findChildFragment(Class<T> fragmentClass) {
         return SupportHelper.findFragment(getChildFragmentManager(), fragmentClass);
     }
-
 
 
 }
