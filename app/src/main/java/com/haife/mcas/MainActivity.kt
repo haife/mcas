@@ -8,7 +8,7 @@ import com.haife.mcas.di.component.AppComponent
 import com.haife.mcas.mvp.IPresenter
 import com.haife.mcas.mvp.presenter.MainPresenter
 
-class MainActivity : BaseSwipeBackActivity<MainPresenter>() {
+class MainActivity : BaseSupportActivity<MainPresenter>() {
 
 
     override fun setupActivityComponent(appComponent: AppComponent) {
