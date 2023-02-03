@@ -113,7 +113,6 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
         mDelegate.setUserVisibleHint(isVisibleToUser);
     }
 
-
     /**
      * Called when the enter-animation end.
      * 入栈动画 结束时,回调

@@ -1,7 +1,7 @@
 package com.haife.mcas.di.component
 
-import com.haife.mcas.MainActivity
 import com.haife.mcas.di.module.MainModule
+import com.haife.mcas.mvp.MainActivity
 import dagger.Component
 
 
