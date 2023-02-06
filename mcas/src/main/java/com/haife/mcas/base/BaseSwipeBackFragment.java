@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
 
+import com.blankj.utilcode.util.FragmentUtils;
 import com.haife.mcas.mvp.IPresenter;
 
 import me.yokeyword.fragmentation.SwipeBackLayout;
@@ -70,9 +71,14 @@ public abstract class BaseSwipeBackFragment<P extends IPresenter> extends BaseSu
 
     @Override
     public boolean onBackPressedSupport() {
-        requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        if (FragmentUtils.getFragments(requireFragmentManager()).size() == 1) {
+            requireActivity().finish();
+        } else {
+            requireActivity().getOnBackPressedDispatcher().onBackPressed();
+        }
         return true;
     }
+
 
     @Override
     public void setEdgeLevel(int widthPixel) {

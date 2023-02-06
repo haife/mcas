@@ -24,7 +24,6 @@ class MainActivity : BaseSwipeBackActivity<MainPresenter>() {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        loadRootFragment(R.id.fl_main,MainFragment.newInstance())
     }
 
     override fun onCreateFragmentAnimator(): FragmentAnimator {
